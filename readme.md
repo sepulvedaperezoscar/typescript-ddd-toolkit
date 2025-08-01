@@ -13,7 +13,6 @@ npm install typescript-ddd-toolkit
 ```typescript
 import { Entity, ValueObject, AggregateRoot } from 'typescript-ddd-toolkit';
 
-// Tu código aquí
 ```
 
 ## Características
@@ -36,7 +35,6 @@ Las contribuciones son bienvenidas. Por favor, asegúrate de:
 
 ## Documentación
 
-[Link a la documentación]
 
 ## Licencia
 
@@ -44,10 +42,10 @@ MIT
 
 ## Autor
 
-[Tu Nombre](https://github.com/USERNAME)
+[Oscar Sepulveda Perez](https://github.com/sepulvedaperezoscar)
 
 ## Enlaces
 
-- [GitHub Repository](https://github.com/USERNAME/REPO)
-- [Issues](https://github.com/USERNAME/REPO/issues)
-- [Pull Requests](https://github.com/USERNAME/REPO/pulls)
+- [GitHub Repository](https://github.com/sepulvedaperezoscar/typescript-ddd-toolkit)
+- [Issues](https://github.com/sepulvedaperezoscar/typescript-ddd-toolkit/issues)
+- [Pull Requests](https://github.com/sepulvedaperezoscar/typescript-ddd-toolkit/pulls)
