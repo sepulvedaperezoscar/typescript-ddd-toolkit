@@ -1,4 +1,4 @@
-import { AggregateRoot } from '../../../src';
+import { AggregateRoot, Identifier } from '../../../src';
 import { DomainEvent } from '../../../src';
 import { UUID } from '../../../src';
 
@@ -9,11 +9,11 @@ class TestEvent extends DomainEvent {
 }
 
 class TestAggregate extends AggregateRoot<UUID> {
-    private constructor(id: UUID) {
+    private constructor(id: Identifier<UUID>) {
         super(id);
     }
 
-    static create(id: UUID): TestAggregate {
+    static create(id: Identifier<UUID>): TestAggregate {
         return new TestAggregate(id);
     }
 
@@ -28,10 +28,10 @@ class TestAggregate extends AggregateRoot<UUID> {
 
 describe('AggregateRoot', () => {
     let aggregate: TestAggregate;
-    let id: UUID;
+    let id: Identifier<UUID>;
 
     beforeEach(() => {
-        id = new UUID();
+        id = new Identifier(new UUID());
         aggregate = TestAggregate.create(id);
     });
 

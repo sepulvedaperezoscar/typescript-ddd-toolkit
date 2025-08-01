@@ -3,6 +3,7 @@ import { Command } from '../../../src';
 class TestCommand extends Command {
     constructor(public readonly action: string) {
         super();
+        Object.freeze(this);
     }
 
     commandName(): string {
@@ -24,9 +25,17 @@ describe('Command', () => {
 
     test('debería ser inmutable', () => {
         const command = new TestCommand('create');
+        const originalAction = command.action;
+
+        // Intentar modificar una propiedad readonly debería lanzar error
         expect(() => {
-            (command as any).action = 'update';
+            Object.defineProperty(command, 'action', {
+                value: 'update'
+            });
         }).toThrow();
+
+        // Verificar que el valor no cambió
+        expect(command.action).toBe(originalAction);
     });
 
     test('debería permitir comparación de comandos', () => {

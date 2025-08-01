@@ -1,21 +1,21 @@
-import { Entity } from '../../../src';
+import { Entity, Identifier } from '../../../src';
 import { UUID } from '../../../src';
 
 class MockEntity extends Entity<UUID> {
-    private constructor(id: UUID) {
+    private constructor(id: Identifier<UUID>) {
         super(id);
     }
 
-    public static create(id: UUID): MockEntity {
+    public static create(id: Identifier<UUID>): MockEntity {
         return new MockEntity(id);
     }
 }
 
 describe('Entity Base', () => {
-    let id: UUID;
+    let id: Identifier<UUID>;
 
     beforeEach(() => {
-        id = new UUID();
+        id = new Identifier(new UUID());
     });
 
     test('debería crear una entidad con ID', () => {
@@ -27,7 +27,7 @@ describe('Entity Base', () => {
     test('debería comparar entidades correctamente', () => {
         const entity1 = MockEntity.create(id);
         const entity2 = MockEntity.create(id);
-        const entity3 = MockEntity.create(new UUID());
+        const entity3 = MockEntity.create(new Identifier(new UUID()));
 
         expect(entity1.equals(entity2)).toBeTruthy();
         expect(entity1.equals(entity3)).toBeFalsy();

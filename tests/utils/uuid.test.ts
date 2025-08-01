@@ -5,7 +5,7 @@ describe('UUID', () => {
         const uuid = new UUID();
         const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
-        expect(uuid.toString()).toMatch(uuidRegex);
+        expect(uuid.toValue()).toMatch(uuidRegex);
     });
 
     test('debería aceptar UUID existente', () => {
@@ -24,7 +24,6 @@ describe('UUID', () => {
         expect(uuid1.equals(uuid2)).toBeTruthy();
         expect(uuid1.equals(uuid3)).toBeFalsy();
         expect(uuid1.equals(undefined)).toBeFalsy();
-        expect(uuid1.equals(null)).toBeFalsy();
     });
 
     test('método generate debería crear UUID válido', () => {

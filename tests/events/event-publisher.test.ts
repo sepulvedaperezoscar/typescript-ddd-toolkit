@@ -1,6 +1,6 @@
-import { EventPublisher } from '../../../core/infrastructure/event-publisher';
-import { DomainEvent } from '../../../core/domain/domain-event.base';
-import { Result } from '../../../shared/result';
+import { EventPublisher } from '../../src';
+import { DomainEvent } from '../../src';
+import { Result } from '../../src';
 
 class TestEvent extends DomainEvent {
     eventName(): string {

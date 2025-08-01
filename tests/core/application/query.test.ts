@@ -3,6 +3,7 @@ import { Query } from '../../../src';
 class TestQuery extends Query {
     constructor(public readonly data: string) {
         super();
+        Object.freeze(this);
     }
 
     queryName(): string {

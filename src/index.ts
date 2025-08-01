@@ -21,7 +21,6 @@ export * from './core/infrastructure/event-publisher';
 export * from './shared/result';
 export * from './shared/either';
 export * from './shared/types';
-export * from './shared/interfaces';
 
 // Utils exports
 export * from './utils/guard';

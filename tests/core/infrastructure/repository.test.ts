@@ -1,4 +1,4 @@
-import { Repository } from '../../../src';
+import { Identifier, Repository } from '../../../src';
 import { AggregateRoot } from '../../../src';
 import { Result } from '../../../src';
 import { UUID } from '../../../src';
@@ -10,6 +10,12 @@ class MockAggregate extends AggregateRoot<UUID> {
 }
 
 class MockRepository extends Repository<MockAggregate> {
+    delete(id: any): Promise<Result<void>> {
+        throw new Error('Method not implemented.');
+    }
+    exists(id: any): Promise<Result<boolean>> {
+        throw new Error('Method not implemented.');
+    }
     private items: Map<string, MockAggregate> = new Map();
 
     async save(aggregate: MockAggregate): Promise<Result<void>> {
@@ -40,7 +46,7 @@ describe('Repository Base', () => {
 
     beforeEach(() => {
         repository = new MockRepository();
-        aggregate = new MockAggregate(new UUID());
+        aggregate = new MockAggregate(new Identifier(new UUID()));
     });
 
     test('debería guardar agregado', async () => {
@@ -50,7 +56,7 @@ describe('Repository Base', () => {
 
     test('debería encontrar agregado por id', async () => {
         await repository.save(aggregate);
-        const result = await repository.findById(aggregate.id);
+        const result = await repository.findById(aggregate.id.getValue());
         expect(result.isSuccess()).toBeTruthy();
         expect(result.getValue().id).toEqual(aggregate.id);
     });

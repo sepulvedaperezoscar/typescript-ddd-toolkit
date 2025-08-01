@@ -1,7 +1,7 @@
-import { EventDispatcher } from '../../events/event-dispatcher';
-import { DomainEvent } from '../../core/domain/domain-event.base';
-import { EventSubscriber } from '../../events/event-subscriber.base';
-import { Result } from '../../shared/result';
+import { EventDispatcher } from '../../src';
+import { DomainEvent } from '../../src';
+import { EventSubscriber } from '../../src';
+import { Result } from '../../src';
 
 class MockEvent extends DomainEvent {
     eventName(): string {
